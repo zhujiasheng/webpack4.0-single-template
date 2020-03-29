@@ -34,11 +34,21 @@ const moduleRules = {
       use: [
         'file-loader'
       ]
-    }
+    },
+    {
+      test: /\.js|jsx$/,
+      exclude: /node_modules/,
+      use: {
+          loader: "babel-loader",
+          options: {
+              presets: ['@babel/preset-react']
+          }
+      }
+    },
   ]
 };
 
-const entry =  () => new Promise((resolve) => resolve(['./src/index.js']));
+const entry =  () => new Promise((resolve) => resolve(['./src/main.js']));
 
 module.exports = {
   entry,

@@ -6,6 +6,8 @@ module.exports = merge(common,{
   devtool:'inline-source-map',
   devServer: {
     contentBase: './public',
+    inline:true,
+    progress:true,
     hot: true
   },
   plugins:[
