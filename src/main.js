@@ -8,6 +8,7 @@ window.AppStore = AppStore;
 @observer
 class App extends Component {
   add = () => {
+    console.log('hello');
     this.AppStore.storeA?.addData();
   }
   
