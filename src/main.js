@@ -2,6 +2,7 @@ import React,{ Component } from 'react';
 import { render } from "react-dom";
 import AppStore from "./store";
 import { observer } from "mobx-react";
+import './style.css';
 React.Component.prototype.AppStore = AppStore;
 window.AppStore = AppStore;
 

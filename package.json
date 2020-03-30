@@ -1,24 +1,24 @@
 {
-  "name": "react-mobx-template",
+  "name": "webpack4.0-template",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open --config config/webpack.dev.js",
-    "watch:prod": "webpack --config config/webpack.prod.js --watch",
-    "build": "webpack --config config/webpack.prod.js"
+    "start": "webpack-dev-server --open --config build/webpack.dev.js",
+    "watch:prod": "webpack --config build/webpack.prod.js --watch",
+    "build": "webpack --config build/webpack.prod.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhujiasheng/react-mobx-template.git"
+    "url": "git+https://github.com/zhujiasheng/webpack4.0-template.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zhujiasheng/react-mobx-template/issues"
+    "url": "https://github.com/zhujiasheng/webpack4.0-template/issues"
   },
-  "homepage": "https://github.com/zhujiasheng/react-mobx-template#readme",
+  "homepage": "https://github.com/zhujiasheng/webpack4.0-template#readme",
   "dependencies": {
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
@@ -31,9 +31,11 @@
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.4.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.0.3",
     "lodash": "^4.17.15",
     "mobx": "5.15.4",
     "mobx-react": "6.1.8",
