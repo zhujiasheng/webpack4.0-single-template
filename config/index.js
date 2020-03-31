@@ -3,13 +3,9 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require("path");
-
-//apipath
-const assetsPublicPath = '';
-const targetUrl = '';
-
-console.log('targetUrl:' + targetUrl);
-console.log('assetsPublicPath:' + assetsPublicPath);
+function resolve (dir) {
+    return path.join(__dirname, '..', dir)
+}
 
 module.exports = {
     dev: {
@@ -19,10 +15,10 @@ module.exports = {
         proxyTable: {
             "/api": {
                 //使用"/api"来代替"http://f.apiplus.c"
-                target: targetUrl, //源地址
+                target: '', //源地址
                 changeOrigin: true, //改变源
                 pathRewrite: {
-                    "^/api": targetUrl //这里理解成用‘/api’代替target里面的地址，后面组件中我们掉接口时直接用api代替 比如我要调用'http://40.00.100.100:3002/user/add'，直接写‘/api/user/add’即可
+                    "^/api": '' //这里理解成用‘/api’代替target里面的地址，后面组件中我们掉接口时直接用api代替 比如我要调用'http://40.00.100.100:3002/user/add'，直接写‘/api/user/add’即可
                 }
             }
         },
@@ -52,12 +48,12 @@ module.exports = {
 
     build: {
         // Template for index.html
-        index: path.resolve(__dirname, "../dist/index.html"),
+        index: resolve(__dirname, "../dist/index.html"),
 
         // Paths
-        assetsRoot: path.resolve(__dirname, "../dist/"),
+        assetsRoot: resolve(__dirname, "../dist/"),
         assetsSubDirectory: "static",
-        assetsPublicPath: assetsPublicPath,
+        assetsPublicPath: 'http://test.com/',
 
         /**
          * Source Maps

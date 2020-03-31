@@ -12,6 +12,10 @@ class App extends Component {
     console.log('hello');
     this.AppStore.storeA?.addData();
   }
+
+  componentWillMount () {
+    console.log(process.env.NODE_ENV,'process.env.NODE_ENV');
+  }
   
   render () {
     return (<div>
