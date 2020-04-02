@@ -1,7 +1,5 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const utils = require('./utils.js');
-const {isDev} = utils;
 const config = require('../config');
 
 function resolve (dir) {
@@ -10,7 +8,7 @@ function resolve (dir) {
 
 const extractCss = new ExtractTextPlugin({
   filename: "app.css",
-  disable: isDev
+  disable: process.env.NODE_ENV === 'deveopment'
 })
 
 const moduleRules = {
@@ -53,17 +51,19 @@ const moduleRules = {
   ]
 };
 
-const entry =  () => new Promise((resolve) => resolve(['./src/main.js']));
+console.log( process.env.NODE_ENV,' process.env.NODE_ENV');
+const publicPath = process.env.NODE_ENV === 'production'
+    ? config.build.assetsPublicPath
+    : config.dev.assetsPublicPath;
+
+console.log(publicPath,'publicPath');
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  entry,
+  entry:'./src/main.js',
   output:{
     path: config.build.assetsRoot,
-    filename: 'app.js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+    publicPath
   },
   resolve: {
     extensions: ['.js','jsx','.vue','.json'],
