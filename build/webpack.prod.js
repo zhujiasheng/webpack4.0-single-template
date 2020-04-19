@@ -1,4 +1,5 @@
-process.env.NODE_ENV = 'production';
+const env = require('../config/prod.env');
+process.env.NODE_ENV = env.NODE_ENV;
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
@@ -31,6 +32,9 @@ module.exports = merge(common,{
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    new webpack.DefinePlugin({
+      'process.env': env
+    }),
   ]
 })

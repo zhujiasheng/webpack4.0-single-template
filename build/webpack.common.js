@@ -1,6 +1,8 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const config = require('../config');
+const VueLoaderConfig = require('./vue-loader.conf');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -11,8 +13,15 @@ const extractCss = new ExtractTextPlugin({
   disable: process.env.NODE_ENV === 'deveopment'
 })
 
+const VueLoader = new VueLoaderPlugin();
+
 const moduleRules = {
   rules: [
+    {
+      test: /\.vue$/,
+      loader: 'vue-loader',
+      options: VueLoaderConfig
+    },
     {
       test: /\.css$/,
       use: extractCss.extract({
@@ -30,7 +39,19 @@ const moduleRules = {
         }],
         // 在开发环境使用 style-loader
         fallback: "style-loader"
-    })
+      })
+    },
+    {
+      test: /\.less$/,
+      use: extractCss.extract({
+        use: [{
+          loader: "css-loader"
+        }, {
+          loader: "less-loader"
+        }],
+        // 在开发环境使用 style-loader
+        fallback: "style-loader"
+      })
     },
     {
       test: /\.(jpg|jpeg|png|svg|jpg|gif)$/,
@@ -47,7 +68,7 @@ const moduleRules = {
               presets: ['@babel/preset-react']
           }
       }
-    },
+    }
   ]
 };
 
@@ -56,11 +77,10 @@ const publicPath = process.env.NODE_ENV === 'production'
     ? config.build.assetsPublicPath
     : config.dev.assetsPublicPath;
 
-console.log(publicPath,'publicPath');
-
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  entry:'./src/main.js',
+  entry:"./src/vueRoot/index.js",
+  // entry:"./src/reactRoot/main.js",
   output:{
     path: config.build.assetsRoot,
     publicPath
@@ -75,6 +95,7 @@ module.exports = {
   },
   module:moduleRules,
   plugins: [
-    extractCss
+    extractCss,
+    VueLoader
   ]
 }
