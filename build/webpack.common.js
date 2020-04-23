@@ -79,8 +79,7 @@ const publicPath = process.env.NODE_ENV === 'production'
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  entry:"./src/vueRoot/index.js",
-  // entry:"./src/reactRoot/main.js",
+  entry:"./src/pages/VueRouterDm/index.js",
   output:{
     path: config.build.assetsRoot,
     publicPath
