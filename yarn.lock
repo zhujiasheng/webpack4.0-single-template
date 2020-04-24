@@ -6522,7 +6522,7 @@ vue@^2.6.11:
 
 vuex@^3.2.0:
   version "3.2.0"
-  resolved "https://registry.npm.taobao.org/vuex/download/vuex-3.2.0.tgz?cache=0&sync_timestamp=1587294758274&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvuex%2Fdownload%2Fvuex-3.2.0.tgz#86da7f26c3e131ff374870580109145a640ee5a8"
+  resolved "https://registry.npm.taobao.org/vuex/download/vuex-3.2.0.tgz#86da7f26c3e131ff374870580109145a640ee5a8"
   integrity sha1-htp/JsPhMf83SHBYAQkUWmQO5ag=
 
 watchpack@^1.6.0:

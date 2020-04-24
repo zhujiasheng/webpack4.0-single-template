@@ -1,14 +1,14 @@
 const env = require('../config/prod.env');
 process.env.NODE_ENV = env.NODE_ENV;
 const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+const base = require('./webpack.base.js');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const config = require('../config');
 
-module.exports = merge(common,{
+module.exports = merge(base,{
   devtool: 'source-map',
   plugins:[
     new CleanWebpackPlugin(),

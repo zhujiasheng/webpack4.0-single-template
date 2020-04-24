@@ -1,14 +1,14 @@
 const env = require('../config/dev.env');
 process.env.NODE_ENV = env.NODE_ENV;
 const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+const base = require('./webpack.base.js');
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const config = require('../config');
 
-const webpckDevConfig = merge(common,{
+const webpckDevConfig = merge(base,{
   devtool:'inline-source-map',
   devServer: {
     clientLogLevel: 'warning',
