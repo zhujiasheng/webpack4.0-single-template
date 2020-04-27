@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <router-link :to="{path:'/first'}">first</router-link>
-    <router-link :to="{path:'/second'}">second</router-link>
+    <router-link :to="{path:'/first'}">一级路由dm</router-link>
+    <router-link :to="{path:'/second'}">二级路由dm</router-link>
     <div>
       <router-view></router-view>
     </div>

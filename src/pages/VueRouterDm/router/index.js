@@ -9,7 +9,16 @@ const routes = [
   },
   {
     path:'/second',
-    component: () =>  import('../Second.vue'),
+    redirect: '/second/a',
+    component: () => import("../Second.vue"),
+    children:[{
+      path:'a',
+      component: () => import("../SecondE1.vue")
+    },
+    {
+      path:'b',
+      component: () => import("../SecondE2.vue")
+    }]
   },
   {
     path:'*',
