@@ -1,14 +1,13 @@
-import First from '../First';
-import Second from '../Second';
+
 import { HashRouter,Route,Switch } from 'react-router-dom';
 import React from 'react';
+import RouterAuth from './routerAuth';
 
 function BaseRouter () {
   return (
     <HashRouter>
       <Switch>
-        <Route path="/first" component={First}></Route> 
-        <Route path="/second" component={Second}></Route> 
+        <RouterAuth/>
       </Switch>
     </HashRouter>
   )
